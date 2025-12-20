@@ -5,7 +5,6 @@ import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
-import Footer from "./components/Footer";
 import "./styles.css";
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
         <Education />
       </main>
 
-      <Footer />
 
     </div>
   );

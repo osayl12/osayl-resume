@@ -206,3 +206,30 @@ header {
 .light .site-nav a {
   color: #020617;
 }
+
+
+/* Grid Cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.project-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.project-card span {
+  font-size: 0.85rem;
+  color: #38bdf8;
+}
