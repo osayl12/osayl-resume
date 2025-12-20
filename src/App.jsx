@@ -1,15 +1,23 @@
+import { useState } from "react";
 import Header from "./components/Header";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
+import Footer from "./components/Footer";
 import "./styles.css";
 
 function App() {
+    const [theme, setTheme] = useState("dark");
+
+
   return (
-    <>
-      <Header />
+    <div className={theme}>
+
+      <Header onToggleTheme={()=>
+        setTheme(theme === "dark" ? "light" : "dark")
+      } />
 
       <main className="container">
         <About />
@@ -18,7 +26,10 @@ function App() {
         <Skills />
         <Education />
       </main>
-    </>
+
+      <Footer />
+
+    </div>
   );
 }
 

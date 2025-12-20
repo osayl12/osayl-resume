@@ -1,4 +1,4 @@
-function Header() {
+function Header({onToggleTheme}) {
   return (
     <header>
       <div className="toolbar">
@@ -10,6 +10,9 @@ function Header() {
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#education">Education</a>
+              <button onClick={onToggleTheme} className="theme-btn">
+            🌗
+          </button>
         </nav>
       </div>
     </header>

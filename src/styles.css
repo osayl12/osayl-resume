@@ -174,3 +174,35 @@ header {
 .project img:hover {
   transform: scale(1.04);
 }
+
+
+/* Light button Theme Styles */
+
+.theme-btn {
+  background: none;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Light  Theme Styles */
+
+.light {
+  background: #f8fafc;
+  color: #020617;
+}
+
+.light .card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.light header {
+  background: #ffffff;
+}
+
+.light .site-nav a {
+  color: #020617;
+}
