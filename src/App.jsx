@@ -5,6 +5,8 @@ import Contact from "./components/Contact";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
+import DevOps from "./components/DevOps";
+import Footer from "./components/Footer";
 import "./styles.css";
 
 function App() {
@@ -23,10 +25,11 @@ function App() {
         <Contact />
         <Projects />
         <Skills />
+        <DevOps />
         <Education />
       </main>
 
-
+      <Footer />
     </div>
   );
 }
