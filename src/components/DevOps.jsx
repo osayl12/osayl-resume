@@ -8,7 +8,6 @@ function DevOps() {
         <li>GitHub Actions (CI/CD)</li>
         <li>Oracle Cloud VM (ARM)</li>
         <li>Linux & SSH</li>
-        <li>Multi-Arch Builds</li>
       </ul>
     </section>
   );
