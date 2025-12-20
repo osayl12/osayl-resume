@@ -119,6 +119,39 @@ header {
   margin-bottom: 6px;
   color: #cbd5f5;
 }
+/* ===== Project Link ===== */
+.project-links {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn {
+  background: #38bdf8;
+  color: #020617;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #0ea5e9;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+}
+
+.btn-outline:hover {
+  background: #38bdf8;
+  color: #020617;
+}
 
 /* ===== Skills ===== */
 .skills-list {

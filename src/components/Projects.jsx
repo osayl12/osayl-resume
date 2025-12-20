@@ -7,19 +7,24 @@ const projects = [
     title: "Velocity Viper",
     image: carGame,
     desc: "Driving survival game with keyboard & joystick.",
-    stack: "JavaScript, HTML, CSS"
+    stack: "JavaScript, HTML, CSS",
+    github: "https://github.com/osayl12/car-game",
   },
   {
     title: "Blood Pressure Monitoring",
     image: bloodPressure,
     desc: "Medical monitoring system with alerts.",
-    stack: "Node.js, SQL"
+    stack: "Node.js, SQL",
+    github: "https://github.com/osayl12/blood-pressure",
+
   },
   {
     title: "Attendance Clock",
     image: clock,
     desc: "Employee check-in/out system.",
-    stack: "Node.js, SQL"
+    stack: "Node.js, SQL",
+    github: "https://github.com/osayl12/attendance-clock",
+
   }
 ];
 
@@ -36,6 +41,11 @@ function Projects() {
             <h3>{p.title}</h3>
             <p>{p.desc}</p>
             <span>{p.stack}</span>
+            <div className="project-links">
+              <a href={p.github} target="_blank" rel="noopener noreferrer">
+                GitHub Link
+              </a>
+            </div>
           </div>
         ))}
       </div>
