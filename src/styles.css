@@ -157,3 +157,20 @@ header {
     grid-template-columns: 1fr;
   }
 }
+/* ===== Hover Animations ===== */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15);
+}
+
+.project img {
+  transition: transform 0.3s ease;
+}
+
+.project img:hover {
+  transform: scale(1.04);
+}
