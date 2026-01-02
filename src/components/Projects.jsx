@@ -39,6 +39,7 @@ const projects = [
   {
     title: "Locking System",
     stack: "Embedded / Electronics",
+    icon: "🛠️",
     github: "https://github.com/osayl12/Locking-System",
     highlights: [
       "Hardware-oriented project",
@@ -63,6 +64,11 @@ export default function Projects() {
       </div>
     )}
 
+{!p.image && p.icon && (
+      <div className="project-icon">
+        <span>{p.icon}</span>
+      </div>
+    )}
             {/* Project content */}
             <div className="project-body">
               <div className="project-head">
