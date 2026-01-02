@@ -47,14 +47,23 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          port: 22
           debug: true
           script: |
-            whoami
-            pwd
-            docker ps
             set -e
+            echo "USER:"
+            whoami
+
+            echo "PWD before cd:"
+            pwd
+
+            echo "APP_DIR=${APP_DIR}"
             cd "${APP_DIR}"
-            echo "DOCKER_IMAGE=${{ env.DOCKER_IMAGE }}" > .env
+
+            echo "PWD after cd:"
+            pwd
+            ls -la
+
             docker compose pull
             docker rm -f resume || true
             docker compose up -d --force-recreate
