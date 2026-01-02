@@ -52,5 +52,6 @@ jobs:
             cd "${APP_DIR}"
             echo "DOCKER_IMAGE=${{ env.DOCKER_IMAGE }}" > .env
             docker compose pull
+            docker rm -f resume || true
             docker compose up -d --force-recreate
             docker image prune -f
