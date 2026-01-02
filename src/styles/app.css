@@ -178,6 +178,10 @@ main.container{
 /* =====================================================
    Project cards with images
    ===================================================== */
+/* Project card without image */
+.project-card:not(:has(.project-image)) {
+  padding-top: 18px;
+}
 
 .project-card {
   overflow: hidden;

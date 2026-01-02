@@ -1,8 +1,7 @@
 // Project images
-import bloodImg from "../assets/projects/blood-pressure.png";
-import attendanceImg from "../assets/projects/attendance.png";
-import velocityImg from "../assets/projects/velocity-viper.png";
-import lockImg from "../assets/projects/locking-system.png";
+import bloodImg from "../Pictures//blood-pressure.png";
+import attendanceImg from "../Pictures//attendance-clock.png";
+import velocityImg from "../Pictures//velocity-viper.png";
 
 const projects = [
   {
@@ -39,7 +38,6 @@ const projects = [
   },
   {
     title: "Locking System",
-    image: lockImg,
     stack: "Embedded / Electronics",
     github: "https://github.com/osayl12/Locking-System",
     highlights: [
@@ -59,9 +57,11 @@ export default function Projects() {
           <article key={p.github} className="project project-card">
             
             {/* Project image */}
-            <div className="project-image">
-              <img src={p.image} alt={`${p.title} preview`} />
-            </div>
+           {p.image && (
+      <div className="project-image">
+        <img src={p.image} alt={`${p.title} preview`} />
+      </div>
+    )}
 
             {/* Project content */}
             <div className="project-body">
