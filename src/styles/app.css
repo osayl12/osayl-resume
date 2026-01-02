@@ -1,42 +1,276 @@
+/* =====================================================
+   Root variables (colors & theme)
+   ===================================================== */
 :root{
-  --bg:#0b0f19; --card:rgba(255,255,255,0.06);
-  --text:#e9eefc; --muted:rgba(233,238,252,0.65);
-  --border:rgba(255,255,255,0.12); --link:#8bb6ff;
+  --bg:#0b0f19;
+  --card:rgba(255,255,255,0.06);
+  --text:#e9eefc;
+  --muted:rgba(233,238,252,0.65);
+  --border:rgba(255,255,255,0.12);
+  --link:#8bb6ff;
 }
 
-*{ box-sizing:border-box; }
-body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial; background:var(--bg); color:var(--text); }
-a{ color:var(--link); text-decoration:none; }
-a:hover{ text-decoration:underline; }
+/* =====================================================
+   Global reset & base styles
+   ===================================================== */
+*{
+  box-sizing:border-box;
+}
 
-.app{ min-height:100vh; display:flex; flex-direction:column; }
-.container{ width:min(1100px,92vw); margin:0 auto; }
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background:var(--bg);
+  color:var(--text);
+}
 
-.header{ position:sticky; top:0; backdrop-filter:blur(10px); border-bottom:1px solid var(--border); background:rgba(0,0,0,0.25); }
-.header-inner{ display:flex; gap:16px; align-items:center; justify-content:space-between; padding:18px 0; }
-.name{ margin:0; font-size:22px; }
-.subtitle{ margin:6px 0 0; color:var(--muted); font-size:13px; }
+a{
+  color:var(--link);
+  text-decoration:none;
+}
 
-.nav{ display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
-main.container{ padding:22px 0 40px; display:flex; flex-direction:column; gap:16px; }
+a:hover{
+  text-decoration:underline;
+}
 
-.card{ border:1px solid var(--border); background:var(--card); border-radius:16px; padding:18px; }
-.card h2{ margin:0 0 12px; font-size:18px; }
-.card h3{ margin:14px 0 8px; font-size:14px; color:var(--muted); }
+/* =====================================================
+   Layout
+   ===================================================== */
+.app{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
 
-.grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-@media (max-width:800px){ .grid{ grid-template-columns:1fr; } }
+.container{
+  width:min(1100px,92vw);
+  margin:0 auto;
+}
 
-.project{ border:1px solid var(--border); border-radius:14px; padding:14px; background:rgba(255,255,255,0.04); }
-.project-head{ display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
-.project h3{ margin:0; font-size:16px; }
-.badge{ display:inline-block; margin-top:10px; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:12px; }
-.list{ margin:10px 0 0; padding-left:18px; color:var(--muted); }
+main.container{
+  padding:22px 0 40px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
 
-.chips{ display:flex; flex-wrap:wrap; gap:8px; }
-.chip{ border:1px solid var(--border); border-radius:999px; padding:6px 10px; font-size:12px; color:var(--muted); }
+/* =====================================================
+   Header
+   ===================================================== */
+.header{
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  background:rgba(0,0,0,0.25);
+  z-index:10;
+}
 
-.contact{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-.muted{ color:var(--muted); }
+.header-inner{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 0;
+}
 
-.footer{ border-top:1px solid var(--border); padding:18px 0; }
+/* Name (Hero effect) */
+.name{
+  margin:0;
+  font-size:26px;
+  font-weight:700;
+  letter-spacing:0.4px;
+  background:linear-gradient(90deg,#8bb6ff,#c4d7ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+  margin:6px 0 0;
+  font-size:14px;
+  line-height:1.4;
+  color:var(--muted);
+}
+
+.nav{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* =====================================================
+   Cards (shared)
+   ===================================================== */
+.card{
+  border:1px solid var(--border);
+  background:var(--card);
+  border-radius:16px;
+  padding:18px;
+}
+
+/* Card titles */
+.card h2{
+  margin:0 0 12px;
+  font-size:18px;
+}
+
+.card h3{
+  margin:14px 0 8px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* =====================================================
+   Hover & depth effects (Premium UX)
+   ===================================================== */
+.card,
+.project{
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover,
+.project:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  border-color:rgba(139,182,255,0.4);
+}
+
+/* =====================================================
+   Grid
+   ===================================================== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+@media (max-width:800px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* =====================================================
+   Projects
+   ===================================================== */
+.project{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:14px;
+  background:rgba(255,255,255,0.04);
+}
+
+.project-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.project h3{
+  margin:0;
+  font-size:16px;
+}
+
+/* Stack badge */
+.badge{
+  display:inline-block;
+  margin-top:10px;
+  padding:6px 10px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:rgba(139,182,255,0.1);
+  color:#cfe0ff;
+  font-size:12px;
+}
+
+/* Lists */
+.list{
+  margin:10px 0 0;
+  padding-left:18px;
+  color:var(--muted);
+}
+
+.list li{
+  margin-bottom:6px;
+}
+
+/* =====================================================
+   Skills / Chips
+   ===================================================== */
+.chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.chip{
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12px;
+  color:var(--muted);
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Hover interaction */
+.chip:hover{
+  background:rgba(139,182,255,0.15);
+  color:#ffffff;
+  transform:scale(1.05);
+}
+
+/* =====================================================
+   Contact
+   ===================================================== */
+.contact{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.contact a{
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+}
+
+.contact a:hover{
+  background:rgba(139,182,255,0.15);
+  text-decoration:none;
+}
+
+/* =====================================================
+   Muted text helper
+   ===================================================== */
+.muted{
+  color:var(--muted);
+}
+
+/* =====================================================
+   DevOps section structure
+   ===================================================== */
+#devops h3{
+  margin-top:18px;
+  padding-top:10px;
+  border-top:1px dashed var(--border);
+}
+
+/* =====================================================
+   Footer
+   ===================================================== */
+.footer{
+  border-top:1px solid var(--border);
+  padding:18px 0;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
