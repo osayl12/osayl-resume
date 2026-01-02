@@ -47,7 +47,11 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          debug: true
           script: |
+            whoami
+            pwd
+            docker ps
             set -e
             cd "${APP_DIR}"
             echo "DOCKER_IMAGE=${{ env.DOCKER_IMAGE }}" > .env
