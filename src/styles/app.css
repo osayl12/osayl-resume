@@ -175,6 +175,45 @@ main.container{
   margin:0;
   font-size:16px;
 }
+/* =====================================================
+   Project cards with images
+   ===================================================== */
+
+.project-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image container */
+.project-image {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,0.05);
+}
+
+/* Image itself */
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+/* Subtle zoom on hover */
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+/* Body spacing */
+.project-body {
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* Stack badge */
 .badge{
