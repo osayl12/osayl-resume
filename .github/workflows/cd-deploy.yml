@@ -49,6 +49,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           debug: true
+          envs: APP_DIR,DOCKER_IMAGE
           script: |
             set -e
             echo "USER:"
