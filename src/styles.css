@@ -1,97 +1,287 @@
+/* ===== Design tokens ===== */
 :root {
-  font-family: system-ui, Arial, sans-serif;
-  color: #111;
-  background: #fafafa;
+  --bg: #0b1220;
+  --bg2: #0f172a;
+  --card: rgba(255, 255, 255, 0.06);
+  --cardSolid: #ffffff;
+  --text: #0b1220;
+  --muted: #475569;
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
+  --shadow2: 0 18px 50px rgba(2, 6, 23, 0.12);
+  --radius: 18px;
+
+  --accent: #2563eb;
+  --accent2: #0ea5e9;
+
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.55;
+  color: var(--text);
+
+  /* Light background with subtle depth */
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(37, 99, 235, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 80% 15%, rgba(14, 165, 233, 0.10), transparent 55%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
-* { box-sizing: border-box; }
+/* Dark mode (automatic) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cardSolid: rgba(255, 255, 255, 0.06);
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --border: rgba(255, 255, 255, 0.12);
+    --shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+    --shadow2: 0 24px 70px rgba(0, 0, 0, 0.45);
 
+    background:
+      radial-gradient(1200px 700px at 10% 10%, rgba(37, 99, 235, 0.22), transparent 60%),
+      radial-gradient(900px 600px at 85% 20%, rgba(14, 165, 233, 0.18), transparent 55%),
+      linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+  }
+}
+
+/* ===== Base reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better selection */
+::selection {
+  background: rgba(37, 99, 235, 0.20);
+}
+
+/* ===== Layout ===== */
 .container {
   max-width: 980px;
   margin: 0 auto;
-  padding: 24px 16px;
+  padding: 28px 16px 44px;
 }
 
+/* ===== Typography ===== */
+h1,
+h2 {
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(30px, 4.2vw, 42px);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: clamp(18px, 2.4vw, 24px);
+}
+
+p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+/* ===== Cards ===== */
 .card {
-  background: white;
-  border: 1px solid #e7e7e7;
-  border-radius: 16px;
+  background: var(--cardSolid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   padding: 18px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 }
 
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: var(--cardSolid);
+  }
+}
+
+/* Subtle hover lift (feels modern) */
+.card:hover {
+  box-shadow: var(--shadow2);
+}
+
+/* ===== Grid ===== */
 .grid2 {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 16px;
-}
-@media (max-width: 820px) {
-  .grid2 { grid-template-columns: 1fr; }
+  gap: 18px;
+  align-items: center;
 }
 
+@media (max-width: 820px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Nav ===== */
 .nav {
+  position: sticky;
+  top: 12px;
+  z-index: 20;
+
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
+
+  margin-bottom: 16px;
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav {
+    background: rgba(15, 23, 42, 0.55);
+  }
 }
 
 .nav a {
   text-decoration: none;
-  color: #111;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: 1px solid #e7e7e7;
-  background: #fff;
+  color: inherit;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
 }
 
-h1 { margin: 0 0 10px; font-size: 34px; }
-h2 { margin: 0 0 12px; font-size: 22px; }
-p { margin: 0 0 10px; line-height: 1.6; color: #333; }
+.nav a:hover {
+  background: rgba(37, 99, 235, 0.10);
+  border-color: rgba(37, 99, 235, 0.22);
+  transform: translateY(-1px);
+}
 
+.nav a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.22);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+/* ===== Badges / Buttons ===== */
 .badges {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-}
-.badge {
-  font-size: 14px;
-  padding: 6px 10px;
-  border: 1px solid #e7e7e7;
-  border-radius: 999px;
-  background: #fff;
+  gap: 10px;
 }
 
+/* Works for both <a class="badge"> and <span class="badge"> */
+.badge {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.80);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .badge {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+/* Make links feel clickable */
+a.badge:hover {
+  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.12);
+}
+
+a.badge:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.22);
+}
+
+/* ===== Profile image ===== */
 .profile {
   width: 100%;
-  max-width: 220px;
-  border-radius: 18px;
-  border: 1px solid #e7e7e7;
+  max-width: 240px;
+  border-radius: calc(var(--radius) + 4px);
+  border: 1px solid var(--border);
   display: block;
+  box-shadow: var(--shadow);
 }
 
+/* ===== Project cards ===== */
 .project {
   display: grid;
-  gap: 8px;
-  padding: 14px;
-  border: 1px solid #e7e7e7;
-  border-radius: 14px;
-  background: #fff;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  background: rgba(255, 255, 255, 0.70);
+  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.06);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
 }
+
+@media (prefers-color-scheme: dark) {
+  .project {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.project:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(2, 6, 23, 0.12);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
 .project .links {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
+
+/* ===== Small text ===== */
 .small {
-  font-size: 14px;
-  color: #666;
+  font-size: 13px;
+  color: var(--muted);
 }
+
+/* ===== Footer ===== */
 .footer {
-  margin-top: 24px;
+  margin-top: 26px;
   text-align: center;
-  color: #666;
-  font-size: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== Reduced motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .nav a,
+  .badge,
+  .project {
+    transition: none !important;
+  }
 }
