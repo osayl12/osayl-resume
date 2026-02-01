@@ -1,5 +1,5 @@
 import { content } from "../data/content";
-import profileImg from "src/assets/profile.jpg";
+import profileImg from "../assets/profile.jpg";
 
 export default function Hero() {
   return (
@@ -21,7 +21,6 @@ export default function Hero() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
-          {/* שים תמונה בשם profile.jpg בתוך src/assets */}
           <img className="profile" src={profileImg} alt="Profile" />
         </div>
       </div>
