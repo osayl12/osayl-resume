@@ -1,16 +1,71 @@
-# React + Vite
+# Portfolio / CV -- DevOps Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with **React + Vite**, fully
+containerized with **Docker**, deployed automatically using **GitHub
+Actions (CI/CD)** and running on **Oracle Cloud VM**.
 
-Currently, two official plugins are available:
+## 🌍 Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 https://osayl-portfolio.duckdns.org/
 
-## React Compiler
+Hosted on: - Oracle Cloud (Ubuntu VM) - DuckDNS subdomain - Docker +
+Nginx
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+------------------------------------------------------------------------
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-   React 19 + Vite
+-   Docker & Docker Compose
+-   Nginx (static build serving)
+-   GitHub Actions (CI/CD pipeline)
+-   Docker Hub (image registry)
+-   Oracle Cloud Infrastructure (deployment)
+-   DuckDNS (subdomain & DNS)
+
+------------------------------------------------------------------------
+
+## 🚀 CI/CD Flow
+
+On every push to `main` branch:
+
+1.  Install dependencies (`npm ci`)
+2.  Run tests (if available)
+3.  Build production React app
+4.  Build multi-architecture Docker image (amd64 + arm64)
+5.  Push image to Docker Hub
+6.  SSH into Oracle VM
+7.  Pull latest Docker image
+8.  Restart container using Docker Compose
+
+Fully automated deployment.
+
+------------------------------------------------------------------------
+
+## 🐳 Docker Image
+
+docker pull osayl1997/portfolio:latest
+
+------------------------------------------------------------------------
+
+## ▶ Run Locally (Docker)
+
+docker compose up -d --build
+
+Open: http://localhost:8080
+
+------------------------------------------------------------------------
+
+## 📁 Project Structure
+
+.github/workflows/deploy.yml → CI/CD pipeline\
+Dockerfile → Multi-stage build\
+docker-compose.yml → Container configuration
+
+------------------------------------------------------------------------
+
+## ☁ Infrastructure
+
+-   Cloud Provider: Oracle Cloud
+-   VM OS: Ubuntu
+-   Deployment via SSH from GitHub Actions

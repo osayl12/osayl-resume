@@ -1,15 +1,19 @@
-# 1) Build stage
-FROM --platform=linux/amd64 node:20-alpine AS build
+# ---- Stage 1: Build ----
+FROM node:20-alpine AS builder
+
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
 COPY . .
 RUN npm run build
 
-# 2) Run stage
+# ---- Stage 2: Serve with nginx ----
 FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

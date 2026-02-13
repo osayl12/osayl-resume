@@ -1,4 +1,5 @@
 import { content } from "../data/content";
+import React from 'react'
 
 export default function Skills() {
   return (
