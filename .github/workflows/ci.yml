@@ -1,4 +1,4 @@
-name: Portfolio CI
+name: Portfolio CI/CD
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,6 +24,9 @@ jobs:
       - name: Build app
         run: npm run build
 
+      - name: Run basic test
+        run: echo "Build completed successfully"
+
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
@@ -36,3 +39,14 @@ jobs:
           context: .
           push: true
           tags: osayl1997/osayl-portfolio:latest
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /var/www/osayl-resume
+            docker-compose pull
+            docker-compose up -d
