@@ -13,7 +13,7 @@ export default function Hero() {
 
           <div className="badges" style={{ marginTop: 10 }}>
             <a className="badge" href={content.githubUrl} target="_blank" rel="noreferrer">
-              GitHub
+              GitHub a
             </a>
             <a className="badge" href={content.linkedinUrl} target="_blank" rel="noreferrer">
               LinkedIn
