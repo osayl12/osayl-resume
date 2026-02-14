@@ -27,7 +27,7 @@ export default function Projects() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Repo
+                Click To Github repositorie
               </a>
               <a
                 className="badge"
@@ -35,7 +35,7 @@ export default function Projects() {
                 target="_blank"
                 rel="noreferrer"
               >
-                Live
+                Click To Live Demo
               </a>
             </div>
           </div>
