@@ -18,8 +18,10 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          port: 22
           script: |
             cd /var/www/osayl-resume
-            docker compose down --remove-orphans
             docker compose pull
+            docker compose down --remove-orphans
             docker compose up -d --force-recreate
+            docker image prune -f
