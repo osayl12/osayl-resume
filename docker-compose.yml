@@ -1,9 +1,9 @@
-version: '3.8'
 
 services:
   portfolio:
     image: osayl1997/osayl-portfolio:latest
     container_name: portfolio
+    pull_policy: always
     ports:
       - "8080:80"
     restart: always
