@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { content } from "../data/content";
 import profileImg from "../assets/profile.jpg";
 
@@ -8,14 +8,26 @@ export default function Hero() {
       <div className="grid2">
         <div>
           <h1>{content.name}</h1>
-          <p className="small">{content.title} · {content.location}</p>
+          <p className="small">
+            {content.title} · {content.location}
+          </p>
           <p>{content.summary}</p>
 
-          <div className="badges" style={{ marginTop: 10 }}>
-            <a className="badge" href={content.githubUrl} target="_blank" rel="noreferrer">
-              GitHub 
+          <div className="badges" style={{ marginTop: 16 }}>
+            <a
+              className="badge primary"
+              href={content.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View GitHub
             </a>
-            <a className="badge" href={content.linkedinUrl} target="_blank" rel="noreferrer">
+            <a
+              className="badge"
+              href={content.linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
               LinkedIn
             </a>
           </div>

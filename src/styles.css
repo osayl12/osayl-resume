@@ -2,17 +2,14 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ===== Design tokens ===== */
+/* ===== Design Tokens ===== */
 :root {
-  --bg: #0b1220;
-  --bg2: #0f172a;
-  --card: rgba(255, 255, 255, 0.06);
   --cardSolid: #ffffff;
   --text: #0b1220;
   --muted: #475569;
   --border: rgba(15, 23, 42, 0.12);
   --shadow: 0 12px 30px rgba(2, 6, 23, 0.08);
-  --shadow2: 0 18px 50px rgba(2, 6, 23, 0.12);
+  --shadow2: 0 20px 60px rgba(2, 6, 23, 0.15);
   --radius: 18px;
 
   --accent: #2563eb;
@@ -26,25 +23,17 @@ html {
     Roboto,
     Arial,
     sans-serif;
-  line-height: 1.55;
+
+  line-height: 1.6;
   color: var(--text);
 
-  /* Light background with subtle depth */
   background:
-    radial-gradient(
-      1200px 600px at 10% 10%,
-      rgba(37, 99, 235, 0.1),
-      transparent 60%
-    ),
-    radial-gradient(
-      900px 500px at 80% 15%,
-      rgba(14, 165, 233, 0.1),
-      transparent 55%
-    ),
+    radial-gradient(1200px 600px at 10% 10%, rgba(37, 99, 235, 0.1), transparent 60%),
+    radial-gradient(900px 500px at 80% 15%, rgba(14, 165, 233, 0.1), transparent 55%),
     linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
-/* Dark mode (automatic) */
+/* ===== Dark Mode ===== */
 @media (prefers-color-scheme: dark) {
   :root {
     --cardSolid: rgba(255, 255, 255, 0.06);
@@ -55,30 +44,17 @@ html {
     --shadow2: 0 24px 70px rgba(0, 0, 0, 0.45);
 
     background:
-      radial-gradient(
-        1200px 700px at 10% 10%,
-        rgba(37, 99, 235, 0.22),
-        transparent 60%
-      ),
-      radial-gradient(
-        900px 600px at 85% 20%,
-        rgba(14, 165, 233, 0.18),
-        transparent 55%
-      ),
+      radial-gradient(1200px 700px at 10% 10%, rgba(37, 99, 235, 0.22), transparent 60%),
+      radial-gradient(900px 600px at 85% 20%, rgba(14, 165, 233, 0.18), transparent 55%),
       linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
   }
 }
 
-/* ===== Base reset ===== */
+/* ===== Base Reset ===== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 body {
@@ -87,67 +63,37 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Better selection */
-::selection {
-  background: rgba(37, 99, 235, 0.2);
-}
-/* ===== Sections spacing ===== */
-.section {
-  margin-top: 20px;
-}
-
-/* ===== Experience ===== */
-.experience-item {
-  margin-bottom: 16px;
-}
-
-.flex-between {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.experience-role {
-  font-weight: 600;
-}
-
-.experience-list {
-  margin-top: 8px;
-  padding-left: 18px;
-}
-
 /* ===== Layout ===== */
 .container {
   max-width: 980px;
   margin: 0 auto;
-  padding: 28px 16px 44px;
+  padding: 32px 16px 48px;
+  animation: fadeIn 500ms ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ===== Typography ===== */
-h1,
-h2 {
+h1, h2 {
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 h1 {
-  margin: 0 0 10px;
-  font-size: clamp(30px, 4.2vw, 42px);
+  margin: 0 0 12px;
+  font-size: clamp(32px, 4.5vw, 44px);
 }
 
 h2 {
-  margin: 0 0 12px;
-  font-size: clamp(18px, 2.4vw, 24px);
+  margin: 0 0 14px;
+  font-size: clamp(20px, 2.5vw, 26px);
 }
 
 p {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--muted);
 }
 
@@ -156,19 +102,14 @@ p {
   background: var(--cardSolid);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 18px;
+  padding: 22px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  .card {
-    background: var(--cardSolid);
-  }
-}
-
-/* Subtle hover lift (feels modern) */
 .card:hover {
+  transform: translateY(-2px);
   box-shadow: var(--shadow2);
 }
 
@@ -176,7 +117,7 @@ p {
 .grid2 {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 18px;
+  gap: 22px;
   align-items: center;
 }
 
@@ -186,7 +127,7 @@ p {
   }
 }
 
-/* ===== Nav ===== */
+/* ===== Navigation ===== */
 .nav {
   position: sticky;
   top: 12px;
@@ -198,45 +139,38 @@ p {
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: 16px;
-  padding: 10px 12px;
+  margin-bottom: 20px;
+  padding: 10px 14px;
 
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
   box-shadow: var(--shadow);
 }
 
 @media (prefers-color-scheme: dark) {
   .nav {
-    background: rgba(15, 23, 42, 0.55);
+    background: rgba(15, 23, 42, 0.6);
   }
 }
 
 .nav a {
   text-decoration: none;
   color: inherit;
-  padding: 9px 12px;
+  padding: 8px 14px;
   border-radius: 999px;
-  border: 1px solid transparent;
-  background: transparent;
-  transition:
-    transform 120ms ease,
-    background 120ms ease,
-    border-color 120ms ease;
+  transition: all 120ms ease;
 }
 
 .nav a:hover {
   background: rgba(37, 99, 235, 0.1);
-  border-color: rgba(37, 99, 235, 0.22);
   transform: translateY(-1px);
 }
 
 .nav a:focus-visible {
   outline: none;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.22);
-  border-color: rgba(37, 99, 235, 0.35);
 }
 
 /* ===== Badges / Buttons ===== */
@@ -244,23 +178,19 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 10px;
 }
 
-/* Works for both <a class="badge"> and <span class="badge"> */
 .badge {
   font-size: 13px;
   font-weight: 600;
-  padding: 8px 12px;
+  padding: 8px 14px;
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
-  color: inherit;
+  background: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  transition:
-    transform 120ms ease,
-    box-shadow 120ms ease,
-    background 120ms ease,
-    border-color 120ms ease;
+  color: inherit;
+  transition: all 140ms ease;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -269,19 +199,19 @@ p {
   }
 }
 
-/* Make links feel clickable */
 a.badge:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   border-color: rgba(37, 99, 235, 0.35);
-  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.12);
+  box-shadow: 0 10px 28px rgba(2, 6, 23, 0.12);
 }
 
-a.badge:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.22);
+.badge.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  border: none;
 }
 
-/* ===== Profile image ===== */
+/* ===== Profile Image ===== */
 .profile {
   width: 100%;
   max-width: 240px;
@@ -289,21 +219,46 @@ a.badge:focus-visible {
   border: 1px solid var(--border);
   display: block;
   box-shadow: var(--shadow);
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
-/* ===== Project cards ===== */
+.profile:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow2);
+}
+
+/* ===== Experience ===== */
+.experience-item {
+  margin-bottom: 18px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.experience-role {
+  font-weight: 600;
+}
+
+.experience-list {
+  margin-top: 8px;
+  padding-left: 20px;
+  color: var(--muted);
+}
+
+/* ===== Projects ===== */
 .project {
   display: grid;
-  gap: 10px;
-  padding: 16px;
+  gap: 12px;
+  padding: 18px;
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) - 2px);
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.06);
-  transition:
-    transform 140ms ease,
-    box-shadow 140ms ease,
-    border-color 140ms ease;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+  transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -313,9 +268,8 @@ a.badge:focus-visible {
 }
 
 .project:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 40px rgba(2, 6, 23, 0.12);
-  border-color: rgba(37, 99, 235, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.15);
 }
 
 .project .links {
@@ -324,7 +278,7 @@ a.badge:focus-visible {
   flex-wrap: wrap;
 }
 
-/* ===== Small text ===== */
+/* ===== Small Text ===== */
 .small {
   font-size: 13px;
   color: var(--muted);
@@ -332,23 +286,17 @@ a.badge:focus-visible {
 
 /* ===== Footer ===== */
 .footer {
-  margin-top: 26px;
+  margin-top: 32px;
   text-align: center;
   color: var(--muted);
   font-size: 13px;
+  padding-bottom: 10px;
 }
 
-/* ===== Reduced motion ===== */
+/* ===== Reduced Motion ===== */
 @media (prefers-reduced-motion: reduce) {
-  .card,
-  .nav a,
-  .badge,
-  .project {
+  * {
     transition: none !important;
+    animation: none !important;
   }
-}
-
-.profile:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow2);
 }
