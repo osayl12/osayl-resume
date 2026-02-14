@@ -5,7 +5,7 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
-import React from 'react'
+import React from "react";
 
 export default function App() {
   return (

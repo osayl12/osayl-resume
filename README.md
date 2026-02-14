@@ -11,19 +11,19 @@ Actions (CI/CD)** and running on **Oracle Cloud VM**.
 Hosted on: - Oracle Cloud (Ubuntu VM) - DuckDNS subdomain - Docker +
 Nginx
 
-------------------------------------------------------------------------
+---
 
 ## 🛠 Tech Stack
 
--   React 19 + Vite
--   Docker & Docker Compose
--   Nginx (static build serving)
--   GitHub Actions (CI/CD pipeline)
--   Docker Hub (image registry)
--   Oracle Cloud Infrastructure (deployment)
--   DuckDNS (subdomain & DNS)
+- React 19 + Vite
+- Docker & Docker Compose
+- Nginx (static build serving)
+- GitHub Actions (CI/CD pipeline)
+- Docker Hub (image registry)
+- Oracle Cloud Infrastructure (deployment)
+- DuckDNS (subdomain & DNS)
 
-------------------------------------------------------------------------
+---
 
 ## 🚀 CI/CD Flow
 
@@ -40,13 +40,13 @@ On every push to `main` branch:
 
 Fully automated deployment.
 
-------------------------------------------------------------------------
+---
 
 ## 🐳 Docker Image
 
 docker pull osayl1997/osayl-portfolio:latest
 
-------------------------------------------------------------------------
+---
 
 ## ▶ Run Locally (Docker)
 
@@ -54,7 +54,7 @@ docker compose up -d --build
 
 Open: http://localhost:8080
 
-------------------------------------------------------------------------
+---
 
 ## 📁 Project Structure
 
@@ -62,10 +62,10 @@ Open: http://localhost:8080
 Dockerfile → Multi-stage build\
 docker-compose.yml → Container configuration
 
-------------------------------------------------------------------------
+---
 
 ## ☁ Infrastructure
 
--   Cloud Provider: Oracle Cloud
--   VM OS: Ubuntu
--   Deployment via SSH from GitHub Actions
+- Cloud Provider: Oracle Cloud
+- VM OS: Ubuntu
+- Deployment via SSH from GitHub Actions

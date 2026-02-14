@@ -3,30 +3,60 @@ export const content = {
   title: "Full-Stack Developer | DevOps Student",
   location: "Israel",
   summary:
-    "Full-Stack Developer with hands-on experience building Dockerized applications and deploying them using CI/CD pipelines. Passionate about DevOps practices, cloud infrastructure, and scalable backend systems.",
+    "Full-Stack Developer with hands-on experience designing, containerizing, and deploying scalable web applications using Docker and CI/CD pipelines. Strong foundation in backend development, system architecture, and DevOps practices. Passionate about cloud infrastructure, automation, and building production-ready systems.",
 
   githubUrl: "https://github.com/osayl12",
   linkedinUrl: "https://www.linkedin.com/in/osayl-hamed-641454387/",
 
   skills: [
+    // Frontend
     "React",
+    "JavaScript",
+    "HTML",
+    "CSS",
+
+    // Backend
     "Node.js",
+    "Express.js",
+    "C#",
+    "Python",
+    "REST APIs",
+
+    // Databases
+    "MySQL",
+    "MongoDB",
+
+    // DevOps & Infrastructure
     "Docker",
     "Docker Compose",
+    "CI/CD",
     "GitHub Actions",
-    "MySQL",
+    "Nginx",
     "Linux",
+
+    // Core CS
+    "OOP",
+    "Data Structures",
+    "Computer Networks",
+    "System Analysis",
+
+    // Mobile & IoT
+    "Mobile Application Development",
+    "Arduino",
+    "C",
+    "IoT End-to-End",
   ],
 
   experience: [
     {
-      role: "Student / Junior Developer",
-      place: "College / Company",
+      role: "Full-Stack & DevOps Student Developer",
+      place: "Kinneret College – Academic Projects & Personal Development",
       period: "2024 - 2026",
       bullets: [
-        "Built web applications with React + Node.js.",
-        "Worked with databases (MySQL) and REST APIs.",
-        "Containerized apps using Docker and deployed to cloud.",
+        "Developed full-stack applications using React and Node.js.",
+        "Designed and implemented RESTful APIs with MySQL integration.",
+        "Containerized applications using Docker and deployed through CI/CD pipelines.",
+        "Worked in Linux-based environments and managed cloud-hosted services.",
       ],
     },
   ],

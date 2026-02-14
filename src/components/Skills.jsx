@@ -1,5 +1,5 @@
 import { content } from "../data/content";
-import React from 'react'
+import React from "react";
 
 export default function Skills() {
   return (
@@ -7,7 +7,9 @@ export default function Skills() {
       <h2>Skills</h2>
       <div className="badges">
         {content.skills.map((s) => (
-          <span key={s} className="badge">{s}</span>
+          <span key={s} className="badge">
+            {s}
+          </span>
         ))}
       </div>
     </section>
