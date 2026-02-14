@@ -44,7 +44,7 @@ Fully automated deployment.
 
 ## 🐳 Docker Image
 
-docker pull osayl1997/portfolio:latest
+docker pull osayl1997/osayl-portfolio:latest
 
 ------------------------------------------------------------------------
 
