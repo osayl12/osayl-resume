@@ -3,7 +3,7 @@ export const content = {
   title: "Full-Stack Developer | DevOps Student",
   location: "Israel",
   summary:
-    "Short self-introduction: what you do, what you’re looking for, and what you’re strong at. 2–3 lines max.",
+    "Full-Stack Developer with hands-on experience building Dockerized applications and deploying them using CI/CD pipelines. Passionate about DevOps practices, cloud infrastructure, and scalable backend systems.",
 
   githubUrl: "https://github.com/osayl12",
   linkedinUrl: "https://www.linkedin.com/in/osayl-hamed-641454387/",
