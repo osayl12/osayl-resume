@@ -21,7 +21,7 @@ jobs:
           port: 22
           script: |
             cd /var/www/osayl-resume
+            docker compose down --remove-orphans || true
+            docker rm -f portfolio || true
             docker compose pull
-            docker compose down --remove-orphans
             docker compose up -d --force-recreate
-            docker image prune -f
