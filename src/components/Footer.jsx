@@ -4,7 +4,7 @@ import React from 'react'
 export default function Footer() {
   return (
     <section id="contact" className="footer">
-      <div>Contact: add your email here</div>
+      <div>Contact: hamedosayl@gmail.com</div>
       <div>
         <a href={content.githubUrl} target="_blank" rel="noreferrer">GitHub</a>
         {" · "}
