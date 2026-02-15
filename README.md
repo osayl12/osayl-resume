@@ -1,4 +1,4 @@
-# Portfolio / CV -- DevOps Project
+# Portfolio / CV 
 
 Personal portfolio website built with **React + Vite**, fully
 containerized with **Docker**, deployed automatically using **GitHub
