@@ -55,17 +55,12 @@ docker compose up -d --build
 Open: http://localhost:8080
 
 ---
-
-## 📁 Project Structure
-
-.github/workflows/deploy.yml → CI/CD pipeline\
-Dockerfile → Multi-stage build\
-docker-compose.yml → Container configuration
-
----
-
 ## ☁ Infrastructure
 
 - Cloud Provider: Oracle Cloud
 - VM OS: Ubuntu
 - Deployment via SSH from GitHub Actions
+---
+ ## License
+
+For educational use.
