@@ -30,13 +30,12 @@ Nginx
 On every push to `main` branch:
 
 1.  Install dependencies (`npm ci`)
-2.  Run tests (if available)
-3.  Build production React app
-4.  Build multi-architecture Docker image (amd64 + arm64)
-5.  Push image to Docker Hub
-6.  SSH into Oracle VM
-7.  Pull latest Docker image
-8.  Restart container using Docker Compose
+2.  Build production React app
+3.  Build multi-architecture Docker image (amd64 + arm64)
+4.  Push image to Docker Hub
+5.  SSH into Oracle VM
+6.  Pull latest Docker image
+7.  Restart container using Docker Compose
 
 Fully automated deployment.
 
