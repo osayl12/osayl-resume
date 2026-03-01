@@ -1,6 +1,6 @@
 import React from "react";
 import { content } from "../data/content";
-import profileImg from "../assets/profile.JPEG";
+import profileImg from "../assets/profile.jpg";
 
 export default function Hero() {
   return (
