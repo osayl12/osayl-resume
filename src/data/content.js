@@ -1,51 +1,20 @@
 export const content = {
   name: "Osayl Hamed",
-  title: "Full-Stack Developer | DevOps Student",
+  title: "Full-Stack Developer | Node.js | React | DevOps",
   location: "Israel",
   summary:
-    "Full-Stack Developer with hands-on experience designing, containerizing, and deploying scalable web applications using Docker and CI/CD pipelines. Strong foundation in backend development, system architecture, and DevOps practices. Passionate about cloud infrastructure, automation, and building production-ready systems.",
-
+    "Software Developer with strong foundation in C#, JavaScript, and backend development. Experienced in building full-stack applications using React and Node.js, with containerized deployments using Docker and CI/CD pipelines. Passionate about DevOps, cloud infrastructure, and building production-ready systems.",
   githubUrl: "https://github.com/osayl12",
   linkedinUrl: "https://www.linkedin.com/in/osayl-hamed-641454387/",
 
-  skills: [
-    // Frontend
-    "React",
-    "JavaScript",
-    "HTML",
-    "CSS",
-
-    // Backend
-    "Node.js",
-    "Express.js",
-    "C#",
-    "Python",
-    "REST APIs",
-
-    // Databases
-    "MySQL",
-    "MongoDB",
-
-    // DevOps & Infrastructure
-    "Docker",
-    "Docker Compose",
-    "CI/CD",
-    "GitHub Actions",
-    "Nginx",
-    "Linux",
-
-    // Core CS
-    "OOP",
-    "Data Structures",
-    "Computer Networks",
-    "System Analysis",
-
-    // Mobile & IoT
-    "Mobile Application Development",
-    "Arduino",
-    "C",
-    "IoT End-to-End",
-  ],
+  skills: {
+    languages: ["C#", "JavaScript", "Python", "C", "C++"],
+    frontend: ["React", "HTML", "CSS"],
+    backend: ["Node.js", "Express.js", "REST APIs"],
+    databases: ["MySQL", "MongoDB"],
+    devops: ["Docker", "CI/CD", "GitHub Actions", "Linux", "Nginx"],
+    cs: ["OOP", "Data Structures", "Computer Networks", "System Analysis"],
+  },
 
   experience: [
     {
@@ -65,7 +34,7 @@ export const content = {
     {
       name: "Blood Pressure Monitoring System",
       description:
-        "Full-stack health monitoring application built with Node.js and MySQL. Allows user management, blood pressure tracking, historical analysis, and monthly summary reports. Includes Dockerized deployment, CI/CD pipeline, Swagger API documentation, security middleware (Helmet + CORS), and data visualization with Chart.js.",
+        "Full-stack health monitoring system built with Node.js and MySQL. Supports user management, blood pressure tracking, historical analytics, and monthly reports. Includes Docker containerization, CI/CD automation, Swagger API documentation, and interactive charts with Chart.js.",
       liveUrl: "https://pressurecheck.duckdns.org/",
       repoUrl: "https://github.com/osayl12/blood_pressure",
       tags: [

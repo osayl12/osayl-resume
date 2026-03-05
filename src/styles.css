@@ -79,17 +79,29 @@ body {
   text-rendering: optimizeLegibility;
   background-attachment: fixed;
 }
-body::before {
+
+body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background: radial-gradient(
-    800px 400px at 50% -10%,
-    rgba(37, 99, 235, 0.08),
-    transparent
-  );
   pointer-events: none;
-  z-index: -1;
+  z-index: -2;
+
+  will-change: transform;
+
+  background:
+    radial-gradient(
+      600px circle at 20% 30%,
+      rgba(37, 99, 235, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px circle at 80% 70%,
+      rgba(14, 165, 233, 0.15),
+      transparent 60%
+    );
+
+  animation: bgMove 20s linear infinite alternate;
 }
 
 /* ===== Layout ===== */
@@ -119,13 +131,29 @@ h2 {
 }
 
 h1 {
-  margin: 0 0 12px;
-  font-size: clamp(32px, 4.5vw, 44px);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+h2 {
+  position: relative;
 }
 
-h2 {
-  margin: 0 0 14px;
-  font-size: clamp(20px, 2.5vw, 26px);
+h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin-top: 6px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.85;
 }
 
 p {
@@ -142,8 +170,8 @@ p {
   box-shadow: var(--shadow);
   backdrop-filter: blur(10px);
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
+    transform 180ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 180ms cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
 }
 
@@ -173,10 +201,29 @@ p {
 .project {
   position: relative;
   overflow: hidden;
+  will-change: transform;
 }
 
 .card:hover::before,
 .project:hover::before {
+  opacity: 1;
+}
+
+.project::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.project:hover::after {
   opacity: 1;
 }
 
@@ -221,6 +268,12 @@ p {
     background: rgba(15, 23, 42, 0.6);
   }
 }
+@media (max-width: 600px) {
+  .nav {
+    justify-content: center;
+    gap: 8px;
+  }
+}
 
 .nav a {
   text-decoration: none;
@@ -241,11 +294,10 @@ p {
 }
 
 /* ===== Badges / Buttons ===== */
-/* ===== Badges / Buttons ===== */
 
 .badges {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 10px;
   margin-top: 10px;
 }
@@ -288,11 +340,16 @@ p {
   }
 }
 
-a.badge:hover {
-  transform: translateY(-3px);
+.badge:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+.badge:hover {
+  transform: translateY(-3px) scale(1.03);
   box-shadow:
-    0 12px 28px rgba(2, 6, 23, 0.18),
-    0 0 0 3px rgba(37, 99, 235, 0.12);
+    0 10px 30px rgba(37, 99, 235, 0.18),
+    0 0 12px rgba(37, 99, 235, 0.18);
 }
 
 /* Primary badge */
@@ -306,6 +363,32 @@ a.badge:hover {
 .badge.primary:hover {
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+}
+/* ===== Skill Icons ===== */
+/* ===== Tech Colors ===== */
+
+.badge svg {
+  font-size: 16px;
+  opacity: 0.85;
+  transition: transform 0.2s ease;
+  color: var(--accent);
+}
+
+/* ===== Animations ===== */
+@keyframes skillFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.badge {
+  animation: skillFade 0.35s ease;
+  will-change: transform, opacity;
 }
 
 /* ===== Profile Image ===== */
@@ -355,23 +438,32 @@ a.badge:hover {
   padding: 18px;
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) - 2px);
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.06);
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.6)
+  );
+
+  backdrop-filter: blur(14px);
+
   transition:
-    transform 160ms ease,
-    box-shadow 160ms ease;
+    transform 220ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 220ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.project:hover {
+  transform: translateY(-6px) scale(1.01);
+
+  box-shadow:
+    0 30px 70px rgba(2, 6, 23, 0.18),
+    0 0 0 1px rgba(37, 99, 235, 0.08);
+}
 @media (prefers-color-scheme: dark) {
   .project {
     background: rgba(255, 255, 255, 0.05);
     z-index: 1;
   }
-}
-
-.project:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 48px rgba(2, 6, 23, 0.15);
 }
 
 .project .links {
@@ -385,13 +477,6 @@ a.badge:hover {
   font-size: 13px;
   color: var(--muted);
   opacity: 0.8;
-}
-h2 {
-  font-weight: 700;
-}
-
-h1 {
-  font-weight: 800;
 }
 
 /* ===== Footer ===== */
@@ -408,5 +493,53 @@ h1 {
   * {
     transition: none !important;
     animation: none !important;
+  }
+}
+
+/* ===== Animated Background ===== */
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+
+  background:
+    radial-gradient(
+      600px circle at 20% 30%,
+      rgba(37, 99, 235, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px circle at 80% 70%,
+      rgba(14, 165, 233, 0.15),
+      transparent 60%
+    );
+
+  animation: bgMove 20s linear infinite alternate;
+}
+
+@keyframes bgMove {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
+section {
+  animation: sectionFade 0.6s ease;
+}
+
+@keyframes sectionFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
