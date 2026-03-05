@@ -7,10 +7,11 @@ export default function Projects() {
       <h2>Projects</h2>
 
       <div style={{ display: "grid", gap: 12 }}>
-        {content.projects.map((p) => (
+        {content.projects?.map((p) => (
           <div key={p.name} className="project">
             <h3 className="project-title">{p.name}</h3>
-            <div className="small">{p.description}</div>
+
+            <p className="small">{p.description}</p>
 
             <div className="badges">
               {p.tags.map((t) => (
@@ -21,21 +22,12 @@ export default function Projects() {
             </div>
 
             <div className="links">
-              <a
-                className="badge"
-                href={p.repoUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Click To Github repositorie
+              <a className="badge" href={p.repoUrl} target="_blank" rel="noreferrer">
+                View GitHub
               </a>
-              <a
-                className="badge"
-                href={p.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Click To Live Demo
+
+              <a className="badge primary" href={p.liveUrl} target="_blank" rel="noreferrer">
+                Live Demo
               </a>
             </div>
           </div>

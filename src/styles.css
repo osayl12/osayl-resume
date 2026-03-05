@@ -470,6 +470,8 @@ p {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 /* ===== Small Text ===== */
