@@ -8,12 +8,12 @@ export const content = {
   linkedinUrl: "https://www.linkedin.com/in/osayl-hamed-641454387/",
 
   skills: {
-    languages: ["C#", "JavaScript", "Python", "C", "C++"],
-    frontend: ["React", "HTML", "CSS"],
-    backend: ["Node.js", "Express.js", "REST APIs"],
-    databases: ["MySQL", "MongoDB"],
-    devops: ["Docker", "CI/CD", "GitHub Actions", "Linux", "Nginx"],
-    cs: ["OOP", "Data Structures", "Computer Networks", "System Analysis"],
+    Languages: ["C#", "JavaScript", "Python", "C", "C++"],
+    Frontend: ["React", "HTML", "CSS"],
+    Backend: ["Node.js", "Express.js", "REST APIs"],
+    Databases: ["MySQL", "MongoDB"],
+    DevOps: ["Docker", "CI/CD", "GitHub Actions", "Linux", "Nginx"],
+    "Computer Science": ["OOP", "Data Structures", "Computer Networks", "System Analysis"],
   },
 
   experience: [

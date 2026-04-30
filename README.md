@@ -1,65 +1,83 @@
-# Portfolio / CV 
+# Osayl Hamed — Portfolio
 
-Personal portfolio website built with **React + Vite**, fully
-containerized with **Docker**, deployed automatically using **GitHub
-Actions (CI/CD)** and running on **Oracle Cloud VM**.
+Personal portfolio website built with **React 19 + Vite**, fully containerized with **Docker**, deployed automatically via **GitHub Actions CI/CD**, and running on **Oracle Cloud**.
 
-## 🌍 Live Website
-
-🔗 https://osayl-portfolio.duckdns.org/
-
-Hosted on: - Oracle Cloud (Ubuntu VM) - DuckDNS subdomain - Docker +
-Nginx
+**Live:** https://osayl-portfolio.duckdns.org/
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
-- React 19 + Vite
-- Docker & Docker Compose
-- Nginx (static build serving)
-- GitHub Actions (CI/CD pipeline)
-- Docker Hub (image registry)
-- Oracle Cloud Infrastructure (deployment)
-- DuckDNS (subdomain & DNS)
-
----
-
-## 🚀 CI/CD Flow
-
-On every push to `main` branch:
-
-1.  Install dependencies (`npm ci`)
-2.  Build production React app
-3.  Build multi-architecture Docker image (amd64 + arm64)
-4.  Push image to Docker Hub
-5.  SSH into Oracle VM
-6.  Pull latest Docker image
-7.  Restart container using Docker Compose
-
-Fully automated deployment.
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, Vite 7 |
+| Styling | Vanilla CSS (dark mode, animations) |
+| Icons | react-icons |
+| Containerization | Docker, Nginx (multi-stage build) |
+| CI/CD | GitHub Actions |
+| Registry | Docker Hub |
+| Hosting | Oracle Cloud VM (Ubuntu) |
+| DNS | DuckDNS |
 
 ---
 
-## 🐳 Docker Image
+## CI/CD Pipeline
 
+Every push to `main` triggers an automated pipeline:
+
+1. Install dependencies (`npm ci`)
+2. Build production bundle (`vite build`)
+3. Build multi-arch Docker image (`amd64` + `arm64`)
+4. Push image to Docker Hub → `osayl1997/osayl-portfolio:latest`
+5. SSH into Oracle VM
+6. Pull latest image and restart container via Docker Compose
+
+---
+
+## Run Locally
+
+**With Docker:**
+
+```bash
+docker compose up -d
+```
+
+Open http://localhost:8080
+
+**With Node (dev mode):**
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/     # Navbar, Hero, Skills, Experience, Projects, Footer
+├── data/
+│   └── content.js  # All portfolio content (single source of truth)
+├── assets/         # Profile image
+├── App.jsx
+└── styles.css      # Full CSS — tokens, dark mode, animations
+```
+
+---
+
+## Docker Image
+
+```bash
 docker pull osayl1997/osayl-portfolio:latest
+```
 
 ---
 
-## ▶ Run Locally (Docker)
+## Infrastructure
 
-docker compose up -d --build
-
-Open: http://localhost:8080
-
----
-## ☁ Infrastructure
-
-- Cloud Provider: Oracle Cloud
-- VM OS: Ubuntu
-- Deployment via SSH from GitHub Actions
----
- ## License
-
-For educational use.
+- **Cloud:** Oracle Cloud Infrastructure (free tier VM)
+- **OS:** Ubuntu
+- **Web server:** Nginx (serving Vite static build)
+- **Deployment:** SSH from GitHub Actions → `docker compose up -d --pull always`

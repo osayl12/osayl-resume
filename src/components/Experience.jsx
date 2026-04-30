@@ -1,9 +1,8 @@
-import React from "react";
 import { content } from "../data/content";
 
 export default function Experience() {
   return (
-    <section id="experience" className="card section">
+    <section id="experience" className="card" style={{ marginTop: 16 }}>
       <h2>Experience</h2>
 
       {content.experience.map((e, index) => (
