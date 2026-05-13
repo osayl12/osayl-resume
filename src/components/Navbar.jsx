@@ -1,7 +1,7 @@
 export default function Navbar() {
   return (
-    <div className="nav">
-      <div style={{ fontWeight: 700 }}>Resume</div>
+    <nav className="nav" aria-label="Main navigation">
+      <a href="#about" className="nav-brand">Osayl</a>
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -9,6 +9,6 @@ export default function Navbar() {
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
       </div>
-    </div>
+    </nav>
   );
 }

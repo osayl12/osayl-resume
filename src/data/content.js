@@ -4,6 +4,7 @@ export const content = {
   location: "Israel",
   summary:
     "Software Developer with strong foundation in C#, JavaScript, and backend development. Experienced in building full-stack applications using React and Node.js, with containerized deployments using Docker and CI/CD pipelines. Passionate about DevOps, cloud infrastructure, and building production-ready systems.",
+  email: "hamedosayl@gmail.com",
   githubUrl: "https://github.com/osayl12",
   linkedinUrl: "https://www.linkedin.com/in/osayl-hamed-641454387/",
 

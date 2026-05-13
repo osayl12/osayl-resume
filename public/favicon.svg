@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00d9ff"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="8" fill="#0f0f23"/>
+  <!-- Gradient border -->
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="7.25" fill="none" stroke="url(#g)" stroke-width="1.5"/>
+  <!-- Subtle inner glow -->
+  <rect x="1.5" y="1.5" width="29" height="29" rx="6.75" fill="none" stroke="#00d9ff" stroke-width="0.5" opacity="0.2"/>
+  <!-- OH monogram -->
+  <text
+    x="16" y="22"
+    text-anchor="middle"
+    font-family="Arial Black, Impact, Arial, sans-serif"
+    font-weight="900"
+    font-size="14"
+    fill="url(#g)"
+    filter="url(#glow)"
+  >OH</text>
+</svg>

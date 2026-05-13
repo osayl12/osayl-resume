@@ -1,5 +1,6 @@
 import { content } from "../data/content";
 import profileImg from "../assets/profile.jpg";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
   return (
@@ -12,14 +13,15 @@ export default function Hero() {
           </p>
           <p>{content.summary}</p>
 
-          <div className="badges" style={{ marginTop: 16 }}>
+          <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 16 }}>
             <a
               className="badge primary"
               href={content.githubUrl}
               target="_blank"
               rel="noreferrer"
             >
-              View GitHub
+              <FaGithub />
+              GitHub
             </a>
             <a
               className="badge"
@@ -27,13 +29,14 @@ export default function Hero() {
               target="_blank"
               rel="noreferrer"
             >
+              <FaLinkedin />
               LinkedIn
             </a>
           </div>
         </div>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <img className="profile" src={profileImg} alt="Profile" />
+          <img className="profile" src={profileImg} alt="Osayl Hamed" />
         </div>
       </div>
     </section>

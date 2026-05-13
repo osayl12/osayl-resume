@@ -106,7 +106,7 @@ h2 {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: clamp(30px, 6vw, 48px);
   background: linear-gradient(135deg, var(--accent), var(--accent3));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -224,6 +224,26 @@ p {
   }
 }
 
+/* ===== Section scroll offset for sticky nav ===== */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* ===== Nav Brand ===== */
+.nav-brand {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, var(--accent), var(--accent3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 200ms ease, background 200ms ease;
+}
+
 /* ===== Navigation ===== */
 .nav {
   position: sticky;
@@ -268,15 +288,25 @@ p {
   font-weight: 500;
 }
 
-.nav a:hover {
+.nav a:not(.nav-brand):hover {
   background: rgba(0, 217, 255, 0.1);
   color: var(--accent);
   transform: translateY(-1px);
 }
 
+.nav .nav-brand:hover {
+  opacity: 1;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 159, 0.4));
+  transform: none;
+}
+
 .nav a:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(0, 217, 255, 0.22);
+  box-shadow: 0 0 0 4px rgba(59, 87, 92, 0.22);
 }
 
 /* ===== Badges / Buttons ===== */
@@ -477,13 +507,36 @@ p {
   opacity: 0.8;
 }
 
-/* ===== Footer ===== */
+/* ===== Footer / Contact ===== */
 .footer {
-  margin-top: 32px;
+  margin-top: 16px;
   text-align: center;
+}
+
+.footer h2::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer p {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.footer-copy {
+  font-size: 12px;
   color: var(--muted);
-  font-size: 13px;
-  padding-bottom: 10px;
+  opacity: 0.6;
+  margin: 0;
 }
 
 /* ===== Reduced Motion ===== */
