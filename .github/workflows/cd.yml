@@ -19,8 +19,20 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           port: 22
+          timeout: 60s
+          command_timeout: 10m
           script: |
+            mkdir -p /var/www/osayl-resume
             cd /var/www/osayl-resume
+            cat > docker-compose.yml << 'EOF'
+            services:
+              portfolio:
+                image: osayl1997/osayl-portfolio:latest
+                pull_policy: always
+                ports:
+                  - "8080:80"
+                restart: always
+            EOF
             docker compose down --remove-orphans || true
             docker compose pull
             docker compose up -d --force-recreate
