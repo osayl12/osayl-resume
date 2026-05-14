@@ -8,13 +8,15 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="container">
+    <div className="antialiased overflow-x-hidden">
       <Navbar />
-      <Hero />
-      <Skills />
-      <Experience />
-      <Projects />
-      <Footer />
+      <main>
+        <Hero />
+        <Skills />
+        <Experience />
+        <Projects />
+        <Footer />
+      </main>
     </div>
   );
 }
