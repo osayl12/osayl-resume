@@ -1,13 +1,46 @@
-import { content } from "../data/content";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { FaGithub } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { content } from "../data/content";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
+  const sectionRef = useRef(null);
   const total = String(content.projects.length).padStart(2, "0");
 
+  useGSAP(
+    () => {
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      gsap.set(".proj-header", { opacity: 0, y: -30 });
+      gsap.set(".proj-card",   { opacity: 0, y: 70, scale: 0.96 });
+
+      if (prefersReduced) return;
+
+      gsap.to(".proj-header", {
+        scrollTrigger: { trigger: sectionRef.current, start: "top 82%" },
+        opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
+      });
+
+      gsap.to(".proj-card", {
+        scrollTrigger: { trigger: ".proj-card", start: "top 88%" },
+        opacity: 1, y: 0, scale: 1, stagger: 0.15, duration: 0.65, ease: "power3.out",
+      });
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section id="projects" className="py-24 px-4 md:px-16 max-w-[1440px] mx-auto">
-      <div className="flex justify-between items-end mb-16 flex-wrap gap-4">
+    <section
+      ref={sectionRef}
+      id="projects"
+      className="py-24 px-4 md:px-16 max-w-[1440px] mx-auto"
+    >
+      <div className="proj-header flex justify-between items-end mb-16 flex-wrap gap-4">
         <div>
           <h2 className="text-headline-lg uppercase">Selected Artifacts</h2>
           <p className="text-body-md text-on-surface-variant mt-2">
@@ -23,16 +56,16 @@ export default function Projects() {
         {content.projects.map((p, i) => {
           const isCyan = i % 2 === 0;
           const borderClass = isCyan ? "neon-border-cyan glow-hover-cyan" : "neon-border-purple glow-hover-purple";
-          const accentText = isCyan ? "text-primary" : "text-secondary";
+          const accentText  = isCyan ? "text-primary"  : "text-secondary";
           const accentBorder = isCyan ? "border-primary" : "border-secondary";
-          const hoverBg = isCyan
+          const hoverBg     = isCyan
             ? "hover:bg-primary hover:text-on-primary"
             : "hover:bg-secondary hover:text-on-secondary";
 
           return (
             <div
               key={p.name}
-              className={`${borderClass} transition-all duration-300 flex flex-col p-8 md:p-10 gap-6 ${i === 1 ? "md:mt-12" : ""}`}
+              className={`proj-card ${borderClass} transition-all duration-300 flex flex-col p-8 md:p-10 gap-6 ${i === 1 ? "md:mt-12" : ""}`}
             >
               <div>
                 <span className={`text-label-caps ${accentText} block mb-3`}>

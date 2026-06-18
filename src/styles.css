@@ -118,3 +118,105 @@ body {
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
 }
+
+/* ── Custom cursor ── */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 5px;
+  height: 5px;
+  background: #00d9ff;
+  margin-left: -2.5px;
+  margin-top: -2.5px;
+  box-shadow: 0 0 6px #00d9ff, 0 0 12px #00d9ff;
+  transition: opacity 0.2s;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(175, 236, 255, 0.5);
+  margin-left: -16px;
+  margin-top: -16px;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* ── Glitch keyframes (applied via JS or CSS class) ── */
+@keyframes glitch-x {
+  0%, 100% { clip-path: inset(0 0 95% 0); transform: translateX(-4px); }
+  20%       { clip-path: inset(30% 0 50% 0); transform: translateX(4px); }
+  40%       { clip-path: inset(60% 0 20% 0); transform: translateX(-3px); }
+  60%       { clip-path: inset(80% 0 5%  0); transform: translateX(3px); }
+  80%       { clip-path: inset(10% 0 70% 0); transform: translateX(-2px); }
+}
+
+.glitch {
+  position: relative;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.glitch::before {
+  color: #00d9ff;
+  animation: glitch-x 3s infinite steps(1);
+  opacity: 0.6;
+}
+.glitch::after {
+  color: #d2bbff;
+  animation: glitch-x 3s infinite steps(1) reverse;
+  opacity: 0.6;
+}
+
+/* ── Scan-line overlay on body ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+}
+
+/* ── GSAP initial visibility guard ── */
+.hero-label,
+.hero-sub,
+.hero-btn,
+.hero-photo,
+.nav-link,
+.skill-card,
+.skills-header,
+.exp-card,
+.exp-header,
+.proj-card,
+.proj-header,
+.contact-headline,
+.contact-body,
+.contact-action {
+  will-change: transform, opacity;
+}
