@@ -4,13 +4,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { FaGithub } from "react-icons/fa";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-import { content } from "../data/content";
+import { useLanguage } from "../context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
   const sectionRef = useRef(null);
-  const total = String(content.projects.length).padStart(2, "0");
+  const { t } = useLanguage();
+  const total = String(t.projects.length).padStart(2, "0");
 
   useGSAP(
     () => {
@@ -42,23 +43,23 @@ export default function Projects() {
     >
       <div className="proj-header flex justify-between items-end mb-16 flex-wrap gap-4">
         <div>
-          <h2 className="text-headline-lg uppercase">Selected Artifacts</h2>
+          <h2 className="text-headline-lg uppercase">{t.ui.projects.heading}</h2>
           <p className="text-body-md text-on-surface-variant mt-2">
-            Experimental builds and production systems.
+            {t.ui.projects.subtitle}
           </p>
         </div>
         <div className="hidden md:block text-mono-label text-outline">
-          [ SHOWING {total} / {total} ]
+          [ {t.ui.projects.showing} {total} / {total} ]
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {content.projects.map((p, i) => {
-          const isCyan = i % 2 === 0;
-          const borderClass = isCyan ? "neon-border-cyan glow-hover-cyan" : "neon-border-purple glow-hover-purple";
-          const accentText  = isCyan ? "text-primary"  : "text-secondary";
-          const accentBorder = isCyan ? "border-primary" : "border-secondary";
-          const hoverBg     = isCyan
+        {t.projects.map((p, i) => {
+          const isCyan       = i % 2 === 0;
+          const borderClass  = isCyan ? "neon-border-cyan glow-hover-cyan"     : "neon-border-purple glow-hover-purple";
+          const accentText   = isCyan ? "text-primary"                          : "text-secondary";
+          const accentBorder = isCyan ? "border-primary"                        : "border-secondary";
+          const hoverBg      = isCyan
             ? "hover:bg-primary hover:text-on-primary"
             : "hover:bg-secondary hover:text-on-secondary";
 
@@ -69,7 +70,7 @@ export default function Projects() {
             >
               <div>
                 <span className={`text-label-caps ${accentText} block mb-3`}>
-                  0{i + 1} / PROJECT
+                  0{i + 1} / {t.ui.projects.badge}
                 </span>
                 <h3 className="text-headline-md uppercase mb-3">{p.name}</h3>
                 <p className="text-body-md text-on-surface-variant">{p.description}</p>
@@ -94,7 +95,7 @@ export default function Projects() {
                   className={`flex items-center gap-2 px-6 py-3 border ${accentBorder} ${accentText} ${hoverBg} transition-all duration-300 text-label-caps`}
                 >
                   <FaGithub />
-                  GITHUB
+                  {t.ui.projects.github}
                 </a>
                 <a
                   href={p.liveUrl}
@@ -103,7 +104,7 @@ export default function Projects() {
                   className={`flex items-center gap-2 px-6 py-3 border ${accentBorder} ${accentText} ${hoverBg} transition-all duration-300 text-label-caps`}
                 >
                   <FaArrowUpRightFromSquare />
-                  LIVE DEMO
+                  {t.ui.projects.liveDemo}
                 </a>
               </div>
             </div>

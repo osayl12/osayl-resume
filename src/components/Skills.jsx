@@ -2,21 +2,22 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { content } from "../data/content";
+import { useLanguage } from "../context/LanguageContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const categoryConfig = {
-  Languages:          { icon: "terminal",    accent: "cyan"   },
-  Frontend:           { icon: "layers",      accent: "purple" },
+  Languages:          { icon: "terminal",     accent: "cyan"   },
+  Frontend:           { icon: "layers",       accent: "purple" },
   Backend:            { icon: "api",          accent: "cyan"   },
-  Databases:          { icon: "database",    accent: "purple" },
-  DevOps:             { icon: "cloud_sync",  accent: "cyan"   },
-  "Computer Science": { icon: "architecture",accent: "purple" },
+  Databases:          { icon: "database",     accent: "purple" },
+  DevOps:             { icon: "cloud_sync",   accent: "cyan"   },
+  "Computer Science": { icon: "architecture", accent: "purple" },
 };
 
 export default function Skills() {
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   useGSAP(
     () => {
@@ -49,16 +50,17 @@ export default function Skills() {
       <div className="border border-outline-variant p-8 md:p-20">
         <h2 className="skills-header text-label-caps text-secondary mb-12 flex items-center gap-4">
           <span className="w-12 h-px bg-secondary inline-block" />
-          TECHNICAL CAPABILITIES
+          {t.ui.skills.heading}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {Object.entries(content.skills).map(([category, skills]) => {
+          {Object.entries(t.skills).map(([category, skills]) => {
             const { icon, accent } = categoryConfig[category] ?? { icon: "code", accent: "cyan" };
-            const isCyan = accent === "cyan";
-            const textCls   = isCyan ? "text-primary"   : "text-secondary";
-            const borderCls = isCyan ? "border-primary"  : "border-secondary";
-            const hoverCls  = isCyan ? "hover:border-primary" : "hover:border-secondary";
+            const isCyan    = accent === "cyan";
+            const textCls   = isCyan ? "text-primary"          : "text-secondary";
+            const borderCls = isCyan ? "border-primary"        : "border-secondary";
+            const hoverCls  = isCyan ? "hover:border-primary"  : "hover:border-secondary";
+            const label     = t.ui.skills.categories[category] ?? category;
 
             return (
               <div
@@ -68,7 +70,7 @@ export default function Skills() {
                 <span className={`material-symbols-outlined ${textCls} text-4xl mb-6 block`}>
                   {icon}
                 </span>
-                <h3 className="text-headline-md mb-4 uppercase">{category}</h3>
+                <h3 className="text-headline-md mb-4 uppercase">{label}</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.map((skill) => (
                     <span
