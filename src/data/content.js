@@ -15,6 +15,7 @@ const en = {
     Databases:          ["MySQL", "MongoDB"],
     DevOps:             ["Docker", "CI/CD", "GitHub Actions", "Linux", "Nginx"],
     "Computer Science": ["OOP", "Data Structures", "Computer Networks", "System Analysis"],
+    "AI Tools":         ["Claude Code", "ChatGPT", "Magnific"],
   },
 
   experience: [
@@ -48,6 +49,20 @@ const en = {
       repoUrl: "https://github.com/osayl12/VelocityViper",
       tags: ["HTML5", "CSS3", "JavaScript", "Docker", "Nginx", "GitHub Actions"],
     },
+    {
+      name: "CarDet — Car Detailing Studio",
+      description:
+        "Marketing and booking website for a car wash, detailing, and nano-coating studio. Features scroll-triggered hero videos walking through the cleaning process, a customer quote-request system, and a product/gallery showcase.",
+      repoUrl: "https://github.com/osayl12/CarDet",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+    },
+    {
+      name: "Smart Irrigation System",
+      description:
+        "Full-stack IoT irrigation system built on an ESP32 microcontroller with MQTT communication. Supports manual, temperature-based, soil-moisture, and scheduled watering modes, water-conservation sensors, and a React dashboard with historical usage charts.",
+      repoUrl: "https://github.com/osayl12/irrigation-system",
+      tags: ["ESP32", "MQTT", "Node.js", "Express", "MySQL", "React", "Chart.js"],
+    },
   ],
 
   ui: {
@@ -73,6 +88,7 @@ const en = {
         Databases:          "Databases",
         DevOps:             "DevOps",
         "Computer Science": "Computer Science",
+        "AI Tools":         "AI Tools",
       },
     },
     experience: {
@@ -123,6 +139,7 @@ const he = {
     Databases:          ["MySQL", "MongoDB"],
     DevOps:             ["Docker", "CI/CD", "GitHub Actions", "Linux", "Nginx"],
     "Computer Science": ["OOP", "מבני נתונים", "רשתות מחשבים", "ניתוח מערכות"],
+    "AI Tools":         ["Claude Code", "ChatGPT", "Magnific"],
   },
 
   experience: [
@@ -156,6 +173,20 @@ const he = {
       repoUrl: "https://github.com/osayl12/VelocityViper",
       tags: ["HTML5", "CSS3", "JavaScript", "Docker", "Nginx", "GitHub Actions"],
     },
+    {
+      name: "CarDet — סטודיו לטיפוח רכב",
+      description:
+        "אתר שיווקי ומערכת הזמנות לעסק שטיפה, טיפוח וציפוי ננו לרכבים. כולל אנימציית וידאו הנשלטת בגלילה שממחישה את תהליך הניקוי, מערכת בקשת הצעת מחיר ותצוגת גלריה ומוצרים.",
+      repoUrl: "https://github.com/osayl12/CarDet",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+    },
+    {
+      name: "מערכת השקיה חכמה",
+      description:
+        "מערכת השקיה IoT מלאה מבוססת בקר ESP32 עם תקשורת MQTT. תומכת במצבי הפעלה ידני, מבוסס טמפרטורה, לחות קרקע ותזמון, כוללת חיישני חיסכון במים ולוח בקרה ב-React עם גרפי צריכה היסטוריים.",
+      repoUrl: "https://github.com/osayl12/irrigation-system",
+      tags: ["ESP32", "MQTT", "Node.js", "Express", "MySQL", "React", "Chart.js"],
+    },
   ],
 
   ui: {
@@ -181,6 +212,7 @@ const he = {
         Databases:          "מסדי נתונים",
         DevOps:             "DevOps",
         "Computer Science": "מדעי המחשב",
+        "AI Tools":         "כלי AI",
       },
     },
     experience: {
