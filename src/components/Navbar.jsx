@@ -50,7 +50,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href={`mailto:${t.email}`}
+            href="#contact"
             className="nav-link px-6 py-2 border border-primary text-primary hover:bg-primary hover:text-on-primary transition-all duration-300 text-label-caps"
           >
             {t.ui.nav.connect}
@@ -113,7 +113,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href={`mailto:${t.email}`}
+              href="#contact"
               onClick={closeMenu}
               className="mt-2 py-4 border border-primary text-primary text-label-caps text-center hover:bg-primary hover:text-on-primary transition-all duration-300"
             >
