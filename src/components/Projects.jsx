@@ -97,15 +97,17 @@ export default function Projects() {
                   <FaGithub />
                   {t.ui.projects.github}
                 </a>
-                <a
-                  href={p.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`flex items-center gap-2 px-6 py-3 border ${accentBorder} ${accentText} ${hoverBg} transition-all duration-300 text-label-caps`}
-                >
-                  <FaArrowUpRightFromSquare />
-                  {t.ui.projects.liveDemo}
-                </a>
+                {p.liveUrl && (
+                  <a
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`flex items-center gap-2 px-6 py-3 border ${accentBorder} ${accentText} ${hoverBg} transition-all duration-300 text-label-caps`}
+                  >
+                    <FaArrowUpRightFromSquare />
+                    {t.ui.projects.liveDemo}
+                  </a>
+                )}
               </div>
             </div>
           );
