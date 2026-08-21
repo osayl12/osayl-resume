@@ -98,7 +98,7 @@ export default function Hero() {
         className="relative z-10 px-4 md:px-16 max-w-[1440px] mx-auto w-full pt-24"
       >
         <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 md:col-span-8 border-l-2 border-primary pl-8 md:pl-10 py-12">
+          <div className="order-2 md:order-1 col-span-12 md:col-span-8 border-l-2 border-primary pl-8 md:pl-10 py-12">
             <p className="hero-label text-label-caps text-primary mb-6">
               {t.ui.hero.label}
             </p>
@@ -136,8 +136,8 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="hidden md:flex col-span-4 justify-end items-end pb-12">
-            <div className="hero-photo w-full h-[500px] neon-border-purple p-2 grayscale hover:grayscale-0 transition-all duration-500">
+          <div className="order-1 md:order-2 col-span-12 md:col-span-4 flex justify-center md:justify-end items-center md:items-end pt-8 md:pt-0 pb-6 md:pb-12">
+            <div className="hero-photo w-40 h-40 md:w-full md:h-[500px] neon-border-purple p-2 grayscale hover:grayscale-0 transition-all duration-500">
               <img
                 className="w-full h-full object-cover"
                 src={profileImg}
