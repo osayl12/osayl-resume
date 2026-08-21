@@ -13,6 +13,7 @@ const categoryConfig = {
   Databases:          { icon: "database",     accent: "purple" },
   DevOps:             { icon: "cloud_sync",   accent: "cyan"   },
   "Computer Science": { icon: "architecture", accent: "purple" },
+  "AI Tools":         { icon: "smart_toy",    accent: "cyan"   },
 };
 
 export default function Skills() {
